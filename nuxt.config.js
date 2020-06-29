@@ -89,16 +89,6 @@ export default {
       }
     }
   },
-  generate: {
-    async routes() {
-      const { $content } = require('@nuxt/content')
-      const files = await $content()
-        .only(['blog/posts'])
-        .fetch()
-
-      return files.map(file => (file.path === '/index' ? '/' : file.path))
-    }
-  },
   buildModules: [
     // Simple usage
     '@nuxtjs/color-mode'

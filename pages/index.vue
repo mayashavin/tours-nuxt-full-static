@@ -33,14 +33,14 @@
         Highlights
       </h4>
       <div class="flex flex-wrap justify-evenly md:justify-start">
-        <a
+        <nuxt-link
           v-for="(post, index) in pages"
           :key="index"
-          @click="viewPost(post.slug)"
+          :to="`/blog/${post.slug}`"
           class="outline-none no-underline cursor-pointer md:mr-4"
         >
           <card v-bind="post" class="max-w-xs" />
-        </a>
+        </nuxt-link>
       </div>
     </div>
     <div class="blogs-list py-5 mx-1 lg:mx-0 md:mx-3">
@@ -48,14 +48,14 @@
         Published
       </h4>
       <div>
-        <a
+        <nuxt-link
           v-for="(post, index) in pages"
           :key="index"
-          @click="viewPost"
+          :to="`/blog/${post.slug}`"
           class="outline-none no-underline cursor-pointer m-2"
         >
           <row v-bind="post" class="md:max-w-3xl" />
-        </a>
+        </nuxt-link>
       </div>
     </div>
   </section>

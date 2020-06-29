@@ -3,7 +3,6 @@
     <a
       :href="tweetFormatLink"
       :arial-label="`Tweet about ${title}`"
-      @click.stop="trackShare('twitter')"
       class="share-button mr2 flex items-center justify-center text-gray-700 mx-1"
       target="_blank"
       data-size="large"
@@ -14,7 +13,6 @@
     <a
       :href="linkedInShareLink"
       :arial-label="`Share ${title} on LinkedIn`"
-      @click.stop="trackShare('linkedin')"
       class="mr2 share-button flex items-center justify-center text-gray-700 mx-1"
       target="_blank"
       rel=" noopener noreferrer"
@@ -24,7 +22,6 @@
     <a
       :href="facebookShare"
       :arial-label="`Share ${title} on Facebook`"
-      @click.stop="trackShare('facebook')"
       target="_blank"
       rel=" noopener noreferrer"
       class="mr2 share-button flex items-center justify-center text-gray-700 mx-1"
