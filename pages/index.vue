@@ -84,9 +84,6 @@ export default {
     }
   },
   methods: {
-    viewPost(slug) {
-      this.$router.push(`/blog/${slug}`)
-    },
     viewTours() {
       this.$router.push('/tours')
     },
