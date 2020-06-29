@@ -1,0 +1,47 @@
+{
+  "name": "full-static-app",
+  "version": "1.0.0",
+  "description": "My hunky-dory Nuxt.js project",
+  "author": "Maya Shavin",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "export": "nuxt export",
+    "build": "nuxt build --target static && nuxt export",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.3.2",
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/pwa": "^2.6.0",
+    "@nuxtjs/tailwindcss": "^2.0.0",
+    "cloudinary-vue": "^1.1.1",
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.4.0",
+    "prism-themes": "^1.4.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/color-mode": "^1.0.0",
+    "@nuxtjs/eslint-config": "^0.0.1",
+    "autoprefixer": "^8.6.4",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": ">=12.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": ">=2.16.0",
+    "eslint-plugin-jest": ">=22.3.0",
+    "eslint-plugin-node": ">=8.0.1",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": ">=4.0.1",
+    "eslint-plugin-standard": ">=4.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.16.4",
+    "tailwindcss-dark-mode": "^1.1.4"
+  }
+}
