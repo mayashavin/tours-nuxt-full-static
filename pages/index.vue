@@ -75,7 +75,7 @@ export default {
   async asyncData({ $content, params, error }) {
     const pages = await $content('blog/posts')
       .only(['title', 'description', 'img', 'slug', 'updatedAt', 'readingTime'])
-      .sortBy('updatedAt')
+      .sortBy('updatedAt', 'desc')
       .fetch()
       .catch(err => {
         error({ statusCode: 404, message: 'Page not found', err })
