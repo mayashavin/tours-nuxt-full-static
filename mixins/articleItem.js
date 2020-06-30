@@ -16,15 +16,21 @@ export default {
     },
     author: {
       type: String,
-      default: 'Maya Shavin'
+      default: ''
     },
     updatedAt: {
       type: String,
-      required: true
+      default: ''
+    },
+    readingTime: {
+      type: String,
+      default: ''
     }
   },
   computed: {
     date() {
+      if (!this.updatedAt) return ''
+
       const formatted = formatTime(new Date(this.updatedAt))
 
       return `${formatted.month} ${formatted.day}, ${formatted.year}`

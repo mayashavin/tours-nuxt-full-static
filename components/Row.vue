@@ -9,7 +9,8 @@
       </p>
       <p class="my-2">{{ author }}</p>
       <div class="text-gray-600">
-        <span>{{ date }}</span>
+        <span>{{ date }}</span> ·
+        <span>{{ readingTime }}</span>
       </div>
     </div>
     <cld-image

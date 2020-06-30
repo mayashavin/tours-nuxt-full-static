@@ -9,7 +9,7 @@
       <div class="flex justify-between items-center">
         <div class="text-gray-600 mr4">
           <span>{{ date }}</span> ·
-          <span>{{ timeToRead }}</span>
+          <span>{{ readingTime }}</span>
         </div>
         <share-btns :title="title" :description="description" />
       </div>
@@ -45,26 +45,6 @@ export default {
       type: Object,
       default: () => ({})
     }
-  },
-  computed: {
-    timeToRead() {
-      // const time = readingTime(this.body)
-      const time = 5
-      return `${time} min read`
-    }
   }
 }
 </script>
-<style>
-.nuxt-content h2 {
-  @apply text-3xl font-semibold my-2;
-}
-
-.nuxt-content a {
-  @apply text-tfh underline;
-}
-
-.nuxt-content p {
-  @apply pb-2;
-}
-</style>

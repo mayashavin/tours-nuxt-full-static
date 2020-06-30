@@ -24,9 +24,12 @@ export default {
   methods: {
     navClass(name) {
       const isBlog = this.currentPath.startsWith('/blog/')
+      const isTours = this.currentPath.startsWith('/tours/')
 
       return `uppercase no-underline mx-3 ${
-        this.currentPath === name || (isBlog && name === '/blog')
+        this.currentPath === name ||
+        (isBlog && name === '/blog') ||
+        (isTours && name === '/tours')
           ? 'text-black font-semibold'
           : 'text-gray-700'
       }`

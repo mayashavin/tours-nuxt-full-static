@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <nuxt-content :document="page" />
-  </div>
+  <tour :tour="page" />
 </template>
 <script>
 export default {
-  name: 'About',
   async asyncData({ $content, params, error }) {
-    const page = await $content('about')
+    const id = params.slug || ''
+    const year = params.year || ''
+
+    const page = await $content(`tours/${year}/${id}`)
       .fetch()
       .catch(err => {
         error({ statusCode: 404, message: 'Page not found', err })
       })
 
-    return {
-      page
-    }
+    return { page }
   }
 }
 </script>

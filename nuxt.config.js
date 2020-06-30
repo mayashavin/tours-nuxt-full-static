@@ -2,7 +2,7 @@ import pkg from './package'
 
 export default {
   mode: 'universal',
-  target: 'static',
+  target: 'static', // full static mode
   components: true,
   content: {
     dir: 'content',
@@ -23,14 +23,19 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: 'TFH - Travel to somewhere new From Home - Demo',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href:
+          'https://res.cloudinary.com/mayashavin/image/upload/w_16,h_16,c_scale/v1593071704/nuxt_demo/tfh_logo_main.png'
+      },
       {
         rel: 'stylesheet',
         href:
@@ -57,19 +62,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    '@nuxt/content'
-  ],
-  /*
-   ** Axios module configuration
-   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
-
+  modules: ['@nuxtjs/pwa', '@nuxt/content'],
   /*
    ** Build configuration
    */
@@ -91,7 +84,8 @@ export default {
   },
   buildModules: [
     // Simple usage
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    ['@nuxtjs/pwa', { icon: false }]
   ],
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
@@ -99,5 +93,31 @@ export default {
     hid: 'nuxt-color-mode-script',
     globalName: '__NUXT_COLOR_MODE__',
     componentName: 'ColorScheme'
+  },
+  pwa: {
+    meta: {
+      name: 'TFH - Travel to somewhere new From Home - Demo',
+      description: 'A demo page about TFH static sites with Nuxt',
+      theme_color: '#cc0f01',
+      ogSiteName: 'TFH - Travel to somewhere new From Home - Demo',
+      ogTitle: 'TFH - Travel to somewhere new From Home - Demo',
+      ogImage: {
+        path:
+          'https://res.cloudinary.com/mayashavin/image/upload/w_512,h_512,c_scale,q_auto/v1593071704/nuxt_demo/tfh_logo.png',
+        width: 512,
+        type: 'png'
+      },
+      ogHost: 'https://full-static-app.vercel.app',
+      twitterCard: 'summary_large_images'
+    }
+  },
+  hooks: {
+    'content:file:beforeInsert': document => {
+      if (document.extension === '.md') {
+        const { text } = require('reading-time')(document.text)
+
+        document.readingTime = text
+      }
+    }
   }
 }

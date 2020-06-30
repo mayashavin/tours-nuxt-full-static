@@ -11,41 +11,41 @@
         <div
           class="absolute bottom-0 right-0 mr-5 md:mr-10 md:mb-2 md:m-3 lg:mr-16 lg:mb-6 flex"
         >
-          <button
-            @click="viewAbout"
+          <nuxt-link
+            to="/about"
             class="rounded flex justify-center items-center bg-gray-100 px-3 md:px-5 py-3 uppercase shadow"
           >
             <icon v-bind="atlas" size="24px" class="mr-3" />
             About TFH
-          </button>
-          <button
-            @click="viewTours"
+          </nuxt-link>
+          <nuxt-link
+            to="/tours"
             class="rounded flex text-white justify-center items-center bg-tfh px-5 py-3 ml-3 uppercase shadow"
           >
             <icon v-bind="ufo" size="24px" class="mr-3" />
             View Tours
-          </button>
+          </nuxt-link>
         </div>
       </div>
     </div>
     <div class="highlights pb-5 border-b mx-1 lg:mx-0 md:mx-3">
       <h4 class="uppercase font-semibold text-gray-700 mb-5">
-        Highlights
+        Highlight Tours
       </h4>
       <div class="flex flex-wrap justify-evenly md:justify-start">
         <nuxt-link
-          v-for="(post, index) in pages"
+          v-for="(tour, index) in tours"
           :key="index"
-          :to="`/blog/${post.slug}`"
+          :to="tour.path"
           class="outline-none no-underline cursor-pointer md:mr-4"
         >
-          <card v-bind="post" class="max-w-xs" />
+          <card v-bind="tour" class="max-w-xs" />
         </nuxt-link>
       </div>
     </div>
     <div class="blogs-list py-5 mx-1 lg:mx-0 md:mx-3">
       <h4 class="uppercase text-gray-700 font-semibold">
-        Published
+        Latest posts
       </h4>
       <div>
         <nuxt-link
@@ -73,22 +73,24 @@ export default {
   },
   async asyncData({ $content, params, error }) {
     const pages = await $content('blog/posts')
-      .only(['title', 'description', 'img', 'slug', 'updatedAt', 'toc'])
+      .only(['title', 'description', 'img', 'slug', 'updatedAt', 'readingTime'])
+      .sortBy('updatedAt')
+      .fetch()
+      .catch(err => {
+        error({ statusCode: 404, message: 'Page not found', err })
+      })
+
+    const tours = await $content('tours', { deep: true })
+      .only(['title', 'description', 'img', 'slug', 'path'])
+      .sortBy('title')
       .fetch()
       .catch(err => {
         error({ statusCode: 404, message: 'Page not found', err })
       })
 
     return {
-      pages
-    }
-  },
-  methods: {
-    viewTours() {
-      this.$router.push('/tours')
-    },
-    viewAbout() {
-      this.$router.push('/about')
+      pages,
+      tours
     }
   }
 }
@@ -98,27 +100,5 @@ export default {
 /* Sample `apply` at-rules with Tailwind CSS */
 .container {
   @apply mx-auto;
-}
-
-.title {
-  font-family: 'Lato', 'Quicksand', 'Source Sans Pro', -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>

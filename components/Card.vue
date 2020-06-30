@@ -17,9 +17,10 @@
       <p class="text-gray-600 capitalize mb-4">
         {{ description }}
       </p>
-      <p class="my-2">{{ author }}</p>
-      <div class="text-gray-600">
-        <span>{{ date }}</span>
+      <p v-if="author" class="my-2">{{ author }}</p>
+      <div v-if="date" class="text-gray-600">
+        <span>{{ date }}</span> ·
+        <span>{{ readingTime }}</span>
       </div>
     </div>
   </div>

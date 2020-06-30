@@ -1,36 +1,36 @@
 <template>
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-6xl mx-auto h-screen flex flex-col">
     <header class="mx-10">
       <div class="flex justify-between py-5 items-center">
         <cld-image
           public-id="nuxt_demo/tfh_logo_main"
           width="120"
-          crop="scale"
           quality="auto"
           fetch-format="auto"
         />
         <div class="flex items-center">
           <icon v-bind="search" size="18px" class="text-gray-600 m-3" />
-          <cld-image
-            alt="User's avatar"
-            public-id="mayashavin/Maya_new"
-            width="40"
-            height="40"
-            radius="max"
-            crop="thumb"
-            quality="auto"
-            fetch-format="auto"
-          />
-          <color-mode />
+          <!-- <color-mode class="text-gray-600" /> -->
         </div>
       </div>
       <navigation />
     </header>
-    <nuxt />
+    <nuxt class="flex-1" />
+    <footer class="mx-auto text-center py-2">
+      <p>
+        Design with ❤️ from
+        <a
+          href="http://mayashavin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline text-tfh"
+          >Maya Shavin</a
+        >
+      </p>
+    </footer>
   </div>
 </template>
 <script>
-/* eslint-disable vue/attribute-hyphenation */
 import { search } from '@/assets/icons'
 
 export default {
@@ -61,32 +61,19 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.nuxt-content h1 {
+  @apply text-4xl font-semibold my-4;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.nuxt-content h2 {
+  @apply text-3xl font-semibold my-2;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.nuxt-content a {
+  @apply text-tfh underline;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.nuxt-content p {
+  @apply pb-2;
 }
 </style>
