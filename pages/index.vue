@@ -6,6 +6,7 @@
           public-id="nuxt_demo/Banner_demo"
           quality="auto"
           responsive
+          alt="Camel tours"
           fetch-format="auto"
         />
         <div

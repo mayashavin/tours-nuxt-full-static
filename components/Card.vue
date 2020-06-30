@@ -14,11 +14,11 @@
       <div class="font-semibold capitalize text-2xl mb-2">
         {{ title }}
       </div>
-      <p class="text-gray-600 capitalize mb-4">
+      <p class="text-gray-700 capitalize mb-4">
         {{ description }}
       </p>
       <p v-if="author" class="my-2">{{ author }}</p>
-      <div v-if="date" class="text-gray-600">
+      <div v-if="date" class="text-gray-700">
         <span>{{ date }}</span> ·
         <span>{{ readingTime }}</span>
       </div>

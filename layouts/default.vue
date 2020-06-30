@@ -7,9 +7,10 @@
           width="120"
           quality="auto"
           fetch-format="auto"
+          alt="TFH - Travel from Home Logo"
         />
         <div class="flex items-center">
-          <icon v-bind="search" size="18px" class="text-gray-600 m-3" />
+          <icon v-bind="search" size="18px" class="text-gray-700 m-3" />
           <!-- <color-mode class="text-gray-600" /> -->
         </div>
       </div>

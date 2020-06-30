@@ -7,7 +7,7 @@
         {{ title }}
       </h1>
       <div class="flex justify-between items-center">
-        <div class="text-gray-600 mr4">
+        <div class="text-gray-700 mr4">
           <span>{{ date }}</span> ·
           <span>{{ readingTime }}</span>
         </div>

@@ -4,17 +4,18 @@
       <div class="font-semibold capitalize text-2xl mb-2">
         {{ title }}
       </div>
-      <p class="text-gray-600 capitalize mb-4">
+      <p class="text-gray-700 capitalize mb-4">
         {{ description }}
       </p>
       <p class="my-2">{{ author }}</p>
-      <div class="text-gray-600">
+      <div class="text-gray-700">
         <span>{{ date }}</span> ·
         <span>{{ readingTime }}</span>
       </div>
     </div>
     <cld-image
       :public-id="img"
+      :alt="title"
       class="mb-2 ml-5 flex-shrink-0"
       crop="fill"
       width="150"
