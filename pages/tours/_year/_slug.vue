@@ -3,6 +3,12 @@
 </template>
 <script>
 export default {
+  head() {
+    return {
+      title: this.page.title,
+      description: this.page.description
+    }
+  },
   async asyncData({ $content, params, error }) {
     const id = params.slug || ''
     const year = params.year || ''

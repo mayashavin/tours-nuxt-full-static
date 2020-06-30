@@ -84,16 +84,16 @@ export default {
   },
   buildModules: [
     // Simple usage
-    '@nuxtjs/color-mode',
+    // '@nuxtjs/color-mode',
     ['@nuxtjs/pwa', { icon: false }]
   ],
-  colorMode: {
-    preference: 'system', // default value of $colorMode.preference
-    fallback: 'light', // fallback value if not system preference found
-    hid: 'nuxt-color-mode-script',
-    globalName: '__NUXT_COLOR_MODE__',
-    componentName: 'ColorScheme'
-  },
+  // colorMode: {
+  //   preference: 'system', // default value of $colorMode.preference
+  //   fallback: 'light', // fallback value if not system preference found
+  //   hid: 'nuxt-color-mode-script',
+  //   globalName: '__NUXT_COLOR_MODE__',
+  //   componentName: 'ColorScheme'
+  // },
   pwa: {
     meta: {
       name: 'TFH - Travel to somewhere new From Home - Demo',
